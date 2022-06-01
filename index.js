@@ -13,11 +13,11 @@ setInterval(() => {
 
 // Register service worker to control making site work offline
 
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker
-//     .register('/sw.js')
-//     .then(() => { console.log('Service Worker Registered'); });
-// }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(() => { console.log('Service Worker Registered'); });
+}
 
 // Code to handle install prompt on desktop
 
@@ -48,4 +48,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
       deferredPrompt = null;
     });
   });
+});
+
+window.addEventListener('appinstalled', (event) => {
+  console.log('👍', 'appinstalled', event);
+  // // Limpa o deferredPrompt para que possa ser coletado como lixo
+  // window.deferredPrompt = null;
 });
