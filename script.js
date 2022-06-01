@@ -6,9 +6,9 @@ const butInstall = document.getElementById('butInstall');
 
 
 /* Only register a service worker if it's supported */
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker.register('/service-worker.js');
-// }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
 
 /**
  * Warn the page must be served over HTTPS
